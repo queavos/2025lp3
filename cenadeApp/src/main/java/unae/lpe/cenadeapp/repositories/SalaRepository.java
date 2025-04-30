@@ -5,9 +5,14 @@
 package unae.lpe.cenadeapp.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import unae.lpe.cenadeapp.models.TipoEquipos;
+import unae.lpe.cenadeapp.models.Sala;
 
 /**
  *
  * @author ossva
  */
+public interface SalaRepository
+        extends JpaRepository<Sala, Long> {
+    //Sala findByName(String nombre);
+    // List<Sala> findByesActivo(boolean valor);
+}

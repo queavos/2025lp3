@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout(~{::section})">
+    <section>
+
+    <h2>Form. Salas</h2>
+    <form th:action="@{/salas/guardar}" th:object="${sala}" method="post">
+        <input type="hidden" name="id" th:field="*{id}">       
+        <div class="mb-3">
+                   
+            <label for="codigo" class="form-label">Codigo</label>
+            <input type="text" class="form-control" name="codigo" id="codigo" th:field="*{codigo}" required>
+        </div>
+                <div class="mb-3">
+            <label for="nombre" class="form-label">nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" th:field="*{nombre}" required>
+        </div>
+            <div class="mb-3">
+            <label for="ubicacion" class="form-label">ubicacion</label>
+            <textarea type="text" class="form-control" name="ubicacion" id="ubicacion" th:field="*{ubicacion}" >
+                
+            </textarea></div>
+                            <div class="mb-3 form-check">
+            <label for="esActivo" class="form-label">esActico</label>
+            <input type="checkbox" class="form-check-input" name="esActivo" id="esActivo" 
+                   th:field="*{esActivo}" >
+            
+        </div>
+ 
+                <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="/salas" class="btn btn-secondary">Cancelar</a>
+        
+    </form>
+    </section>
