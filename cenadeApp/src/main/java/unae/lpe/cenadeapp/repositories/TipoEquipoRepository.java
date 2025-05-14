@@ -13,4 +13,6 @@ import unae.lpe.cenadeapp.models.TipoEquipos;
  */
 public interface TipoEquipoRepository
         extends JpaRepository<TipoEquipos, Integer> {
+
+    public Object findById(Long id);
 }

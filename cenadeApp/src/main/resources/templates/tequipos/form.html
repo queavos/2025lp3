@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout(~{::section})">
+    <section>
+
+    <h2>Form. Tipos de Equipos</h2>
+    <form th:action="@{/tequipos/guardar}" th:object="${dato}" method="post">
+        <input type="hidden" name="id" th:field="*{id}">       
+ 
+                <div class="mb-3">
+            <label for="nombre" class="form-label">nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre" th:field="*{nombre}" required>
+        </div>
+            <div class="mb-3">
+            <label for="ubicacion" class="form-label">descripcion</label>
+            <textarea type="text" class="form-control" name="descripcion" id="descripcion" th:field="*{descripcion}" >
+                
+            </textarea></div>
+                        <div class="mb-3">
+            <label for="nombre" class="form-label">imagen</label>
+            <input type="text" class="form-control" name="imagen" id="imagen" th:field="*{imagen}" required>
+        </div>
+                            
+ 
+                <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="/salas" class="btn btn-secondary">Cancelar</a>
+        
+    </form>
+    </section>

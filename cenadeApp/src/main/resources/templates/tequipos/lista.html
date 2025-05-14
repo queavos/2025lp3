@@ -1,15 +1,33 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-  <head>
-    <title>TODO supply a title</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-      <div>Tipos de equipos</div>
-  </body>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout(~{::section})">
+    <section>
+      <h1>Lista de Tipos de Equipos</h1>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>Codigo</th>
+                  <th>Nombre</th>
+                  <th>Descipción</th>
+                  <th>Imagen</th>
+                  <th>
+                  <a href="/tequipos/nuevo" class="btn btn-primary mb-3">Agregar Nueva Sala</a>
+                  </th>
+              </tr>
+          </thead><!-- comment -->
+          <tbody>
+              <tr th:each="dato : ${datos}">
+                  <td th:text="${dato.id}">Codigo</td>
+                  <td th:text="${dato.nombre}">Nombre</td>
+                  <td th:text="${dato.descripcion}">Ubic</td>
+                  <td th:text="${dato.imagen}">Activo</td>
+                  <td>
+                      <a th:href="@{/tequipos/editar/{id}(id=${dato.id})}" class="btn btn-warning"
+                          > Editar</a><!-- comment -->
+                      <a th:href="@{/tequipos/borrar/{id}(id=${dato.id})}" class="btn btn-danger"
+                          > Borrar</a><!-- comment -->    
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      </section>
 </html>
