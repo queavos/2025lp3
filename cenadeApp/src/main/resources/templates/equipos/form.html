@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout(~{::section})">
+    <section>
+
+    <h2>Form. Equipos</h2>
+    <form th:action="@{/equipos/guardar}" th:object="${dato}" method="post">
+        <input type="hidden" name="id" th:field="*{id}">       
+<div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" required th:field="*{descripcion}">
+            </div>
+            <div class="mb-3">
+                <label for="direccionmac" class="form-label">Dirección MAC</label>
+                <input type="text" class="form-control" id="direccionmac" required th:field="*{direccionMAC}">
+            </div>
+            <div class="mb-3">
+                <label for="estado_equipo" class="form-label">Estado del equipo</label>
+                <textarea class="form-control" id="estado_equipo" th:field="*{estadoEquipo}"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen</label>
+                <input type="text" class="form-control" id="imagen" required th:field="*{imagen}">
+            </div>
+            <div class="mb-3">
+                <label for="marca" class="form-label">Marca</label>
+                <input type="text" class="form-control" id="marca" required th:field="*{marca}">
+            </div>
+            <div class="mb-3">
+                <label for="modelo" class="form-label">Modelo</label>
+                <input type="text" class="form-control" id="modelo" required th:field="*{modelo}"> 
+            </div>
+            <div class="mb-3">
+                <label for="nombre_red" class="form-label">Nombre de Red</label>
+                <input type="text" class="form-control" id="nombre_red" required th:field="*{id}">
+            </div>
+            <div class="mb-3">
+                <label for="numero_serie" class="form-label">Número de Serie</label>
+                <input type="text" class="form-control" id="numero_serie" required th:field="*{numeroSerie}">
+            </div>
+            <div class="mb-3">
+                <label for="observaciones" class="form-label">Observaciones</label>
+                <textarea class="form-control" id="observaciones" th:field="*{observaciones}"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="sistema_operativo" class="form-label">Sistema Operativo</label>
+                <input type="text" class="form-control" id="sistema_operativo" required th:field="*{sitemaOperativo}">
+            </div>
+            <div class="mb-3">
+                <label for="sala_id" class="form-label">ID de Sala</label>
+                <select th:field="*{sala}" class="form-control" required>
+                    <option value="">-- Seleccionar --</option>
+			    <option th:each="sala : ${salas}" th:value="${sala.id}" th:text="${sala.nombre}"></option>
+     
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="tequipo_id" class="form-label">ID de Tipo de Equipo</label>
+                 <select th:field="*{tequipo}" class="form-control" required>
+                    <option value="">-- Seleccionar --</option>
+			    <option th:each="tequipo : ${tequipos}" th:value="${tequipo.id}" th:text="${tequipo.nombre}"></option>
+     
+                </select>
+            </div>
+ 
+                <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="/salas/" class="btn btn-secondary">Cancelar</a>
+        
+    </form>
+    </section>

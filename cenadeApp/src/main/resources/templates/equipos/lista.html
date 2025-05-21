@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout(~{::section})">
+    <section>
+      <h1>Lista de Equipos</h1>
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>Codigo</th>
+                  <th>Nombre</th>
+                  <th>Ubic</th>
+                  <th>Activo</th>
+                  <th>
+                  <a href="/equipos/nuevo" class="btn btn-primary mb-3">Agregar Nuevo Equipo</a>
+                  </th>
+              </tr>
+          </thead><!-- comment -->
+          <tbody>
+              <tr th:each="dato : ${datos}">
+                  <td th:text="${dato.descripcion}">Codigo</td>
+                  <td th:text="${dato.marca}">Nombre</td>
+                  <td th:text="${dato.sala.nombre}">Ubic</td>
+                  <td th:text="${dato.tequipo.nombre}">Activo</td>
+                  <td>
+                      <a th:href="@{/equipos/editar/{id}(id=${dato.id})}" class="btn btn-warning"
+                          > Editar</a><!-- comment -->
+                      <a th:href="@{/equipos/borrar/{id}(id=${dato.id})}" class="btn btn-danger"
+                          > Borrar</a><!-- comment -->    
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      </section>
+</html>
